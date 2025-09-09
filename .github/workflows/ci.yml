@@ -14,7 +14,7 @@ jobs:
         with: { node-version: 20, cache: npm }
 
       - name: Lint
-        run: npm prepare
+        run: npm run prepare
 
       - name: Build
         working-directory: ./client-app
