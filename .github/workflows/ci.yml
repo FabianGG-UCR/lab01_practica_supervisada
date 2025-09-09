@@ -21,3 +21,47 @@ jobs:
           cache-dependency-path: |
             backend/package-lock.json
             client-app/package-lock.json
+
+      # Backend Testing with Coverage
+      - name: Backend – Install & Test with Coverage
+        working-directory: ./backend
+        run: |
+          npm ci
+          npm run test:coverage
+
+      - name: Backend – Enforce 90% Coverage
+        working-directory: ./backend
+        run: |
+          COVERAGE=$(jq '.total.statements.pct' coverage/coverage-summary.json)
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+            echo "Backend coverage ($COVERAGE%) < 90%"
+            exit 1
+          fi
+          echo "Backend coverage meets threshold: $COVERAGE%"
+
+      # Frontend Testing with Coverage
+      - name: Frontend – Install & Test with Coverage
+        working-directory: ./client-app
+        run: |
+          npm ci
+          npm run test:coverage
+
+      - name: Frontend – Enforce 90% Coverage
+        working-directory: ./client-app
+        run: |
+          COVERAGE=$(jq '.total.statements.pct' coverage/coverage-summary.json)
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+            echo "Frontend coverage ($COVERAGE%) < 90%"
+            exit 1
+          fi
+          echo "Frontend coverage meets threshold: $COVERAGE%"
+
+      # Upload artifacts for debugging
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: |
+            backend/coverage/
+            client-app/coverage/
