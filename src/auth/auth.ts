@@ -1,9 +1,9 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { db } from '../db/config.js';
+import { db } from '../db/config';
 import type { BetterAuthOptions } from 'better-auth';
-import { config } from '../config/index.js';
-import * as schema from '../db/schema/auth.js';
+import { config } from '../config/index';
+import * as schema from '../db/schema/auth';
 
 const userConfig: BetterAuthOptions['user'] = {
   additionalFields: {

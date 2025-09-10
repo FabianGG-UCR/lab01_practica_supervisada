@@ -14,8 +14,10 @@ jobs:
         with: { node-version: 20, cache: npm }
       - run: npm i
 
-      - name: Lint
-        run: npm run prepare
+      - name: Lints
+        run: |
+          npm run prepare
+          npm run check-all
 
       - name: Build
         run: npm run build

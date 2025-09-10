@@ -1,9 +1,5 @@
 import dotenv from 'dotenv';
-//(process.env.NODE_ENV !== 'production')
-if (true) {
-  dotenv.config();
-}
-
+dotenv.config();
 export const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   isDevelopment: (process.env.NODE_ENV || 'development') === 'development',

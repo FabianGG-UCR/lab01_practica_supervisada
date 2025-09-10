@@ -1,12 +1,10 @@
-
 import { Router } from 'express';
-import { createDepartamentoRepository } from './departamento-repository.js';
-import { createDepartamentoService } from './departamento-service.js';
-import { createDepartamentoController } from './departamento-controller.js';
-import { db } from '../../db/config.js';
+import { createDepartamentoRepository } from './departamento-repository';
+import { createDepartamentoService } from './departamento-service';
+import { createDepartamentoController } from './departamento-controller';
+import { db } from '../../db/config';
 
 const departamentoRouter = Router();
-
 
 const departamentoRepo = createDepartamentoRepository(db);
 const departamentoService = createDepartamentoService({ departamentoRepo });

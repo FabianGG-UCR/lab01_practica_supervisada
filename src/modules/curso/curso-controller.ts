@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import { CreateCursoSchema, PaginationSchema, UpdateCursoSchema } from './curso-validation.js';
-import type { createCursoService } from './curso-service.js';
+import { CreateCursoSchema, PaginationSchema, UpdateCursoSchema } from './curso-validation';
+import type { createCursoService } from './curso-service';
 
 export const createCursoController = (cursoService: ReturnType<typeof createCursoService>) => ({
   async create(req: Request, res: Response) {
@@ -9,7 +9,7 @@ export const createCursoController = (cursoService: ReturnType<typeof createCurs
     res.status(201).json(result);
   },
 
-  async getAll(req:Request, res:Response){
+  async getAll(req: Request, res: Response) {
     const result = await cursoService.getAllCursos();
     res.json(result);
   },

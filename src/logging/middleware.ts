@@ -1,5 +1,5 @@
 import type { IncomingMessage } from 'http';
-import { logger } from './logger.js';
+import { logger } from './logger';
 import pinoHttp from 'pino-http';
 export const requestLogger = pinoHttp({
   logger,

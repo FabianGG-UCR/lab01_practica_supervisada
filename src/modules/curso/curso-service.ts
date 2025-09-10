@@ -1,12 +1,12 @@
-import type { CursoRepository } from './curso-repository.js';
+import type { CursoRepository } from './curso-repository';
 import type {
   CreateCursoSchema,
   PaginatedResponse,
   PaginationSchema,
   UpdateCursoSchema,
-} from './curso-validation.js';
-import { NotFoundError } from '../../shared/app-errors.js';
-import type { CursoWithDepartamento } from './curso-types.js';
+} from './curso-validation';
+import { NotFoundError } from '../../shared/app-errors';
+import type { CursoWithDepartamento } from './curso-types';
 
 export const createCursoService = (deps: { cursoRepo: CursoRepository }) => ({
   async createCurso(data: CreateCursoSchema) {
@@ -50,7 +50,6 @@ export const createCursoService = (deps: { cursoRepo: CursoRepository }) => ({
   async getCursosPaginated(
     params: PaginationSchema
   ): Promise<PaginatedResponse<CursoWithDepartamento>> {
-    
     const { data, total } = await deps.cursoRepo.findPaginated({
       page: params.page,
       limit: params.limit,
@@ -65,5 +64,5 @@ export const createCursoService = (deps: { cursoRepo: CursoRepository }) => ({
         totalPages: Math.ceil(total / params.limit),
       },
     };
-  }
+  },
 });
