@@ -1,0 +1,33 @@
+# Node
+node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Typescript
+dist
+*.tsbuildinfo
+
+# Env files
+.env
+
+# Logs
+logs
+*.log
+
+# Git
+.git
+.gitignore
+
+# Configs and tools
+.eslint*
+.prettier*
+husky
+lint-staged.config.js
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.idea
+.vscode
