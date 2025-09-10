@@ -1,23 +1,35 @@
-name: CI 
+name: CI
 
 on:
   push:
-    branches: [ main]
+    branches: [ main ]
 
 jobs:
   test-and-validate:
     runs-on: ubuntu-latest
+    env:                               
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
+      BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
+      PORT: ${{ secrets.PORT }}
 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
-      - run: npm i
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
 
       - name: Lints
         run: |
           npm run prepare
           npm run check-all
+
+
+      - name: Tests
+        run: npm run test
 
       - name: Build
         run: npm run build
