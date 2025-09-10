@@ -8,3 +8,14 @@ describe('App E2E', () => {
     expect(res.body).toEqual({ status: 'ok' });
   });
 });
+
+describe('POST /api/cursos', () => {
+  it('should return 400 for invalid data', async () => {
+    const response = await request(app).post('/api/cursos').send({
+      sigla: '',
+      nombre: 'Test Course',
+      idDepartamento: -1,
+    });
+    expect(response.status).toBe(400);
+  });
+});
