@@ -1,12 +1,12 @@
 import { eq, sql } from 'drizzle-orm';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
-import { curso, departamento } from '../../db/schema/index.js';
+import { curso, departamento } from '../../db/schema/index';
 import type {
   CursoData,
   CursoWithDepartamento,
   CreateCursoData,
   UpdateCursoData,
-} from './curso-types.js';
+} from './curso-types';
 
 /**
  * Repository interface for Curso operations

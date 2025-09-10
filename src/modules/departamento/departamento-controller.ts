@@ -1,7 +1,6 @@
 import type { Request, Response } from 'express';
 import type { createDepartamentoService } from './departamento-service.js';
 
-
 export const createDepartamentoController = (
   departamentoService: ReturnType<typeof createDepartamentoService>
 ) => ({
