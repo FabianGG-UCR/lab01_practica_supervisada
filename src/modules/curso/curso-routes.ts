@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { createCursoRepository } from './curso-repository';
-import { createCursoService } from './curso-service';
-import { createCursoController } from './curso-controller';
-import { db } from '../../db/config';
+import { createCursoRepository } from './curso-repository.js';
+import { createCursoService } from './curso-service.js';
+import { createCursoController } from './curso-controller.js';
+import { db } from '../../db/config.js';
 
 const cursoRouter = Router();
 

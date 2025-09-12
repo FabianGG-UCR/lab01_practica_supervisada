@@ -1,10 +1,10 @@
 import type { Request, Response, NextFunction } from 'express';
 import { ZodError } from 'zod';
 import { DatabaseError } from 'pg';
-import { isAppError, type AppError } from '../shared/app-errors';
-import { mapDatabaseError } from '../shared/db-errors';
-import { logger } from '../logging/logger';
-import { config } from '../config/index';
+import { isAppError, type AppError } from '../shared/app-errors.js';
+import { mapDatabaseError } from '../shared/db-errors.js';
+import { logger } from '../logging/logger.js';
+import { config } from '../config/index.js';
 
 interface ErrorResponse {
   error: {

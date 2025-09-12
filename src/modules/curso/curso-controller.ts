@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import { CreateCursoSchema, PaginationSchema, UpdateCursoSchema } from './curso-validation';
-import type { createCursoService } from './curso-service';
+import { CreateCursoSchema, PaginationSchema, UpdateCursoSchema } from './curso-validation.js';
+import type { createCursoService } from './curso-service.js';
 
 export const createCursoController = (cursoService: ReturnType<typeof createCursoService>) => ({
   async create(req: Request, res: Response) {

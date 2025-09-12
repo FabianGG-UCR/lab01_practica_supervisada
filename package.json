@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "NODE_ENV=production node dist/index ",
+    "start": "node dist/index",
     "au:generate": "npx @better-auth/cli generate --config ./src/auth/auth.ts",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -15,7 +15,8 @@
     "type-check": "tsc --noEmit",
     "check-all": "npm run type-check && npm run lint && npm run format:check",
     "prepare": "husky",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "docker": "docker build -t backend:1 ."
   },
   "lint-staged": {
     "*.ts": [

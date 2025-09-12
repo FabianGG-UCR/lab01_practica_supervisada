@@ -1,14 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import { toNodeHandler } from 'better-auth/node';
-import { auth } from './auth/auth';
-import { config } from './config/index';
-import { requestLogger } from './logging/middleware';
-import { db } from './db/config';
+import { auth } from './auth/auth.js';
+import { config } from './config/index.js';
+import { requestLogger } from './logging/middleware.js';
+import { db } from './db/config.js';
 import { sql } from 'drizzle-orm';
-import { errorHandler } from './middleware/error-handler';
-import cursoRouter from './modules/curso/curso-routes';
-import departamentoRouter from './modules/departamento/departamento-router';
+import { errorHandler } from './middleware/error-handler.js';
+import cursoRouter from './modules/curso/curso-routes.js';
+import departamentoRouter from './modules/departamento/departamento-router.js';
 
 const app = express();
 

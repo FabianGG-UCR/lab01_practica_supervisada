@@ -1,7 +1,7 @@
-import { app } from './app';
-import { config } from './config/index';
-import { logger } from './logging/logger';
-import { onShutdown } from './server/shutdown';
+import { app } from './app.js';
+import { config } from './config/index.js';
+import { logger } from './logging/logger.js';
+import { onShutdown } from './server/shutdown.js';
 
 const port = config.port;
 
