@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import type { createDepartamentoService } from './departamento-service.js';
+import { CreateDepartamentoSchema } from './departamento-validation.js';
 
 export const createDepartamentoController = (
   departamentoService: ReturnType<typeof createDepartamentoService>
@@ -10,7 +11,8 @@ export const createDepartamentoController = (
   },
 
   async create(req: Request, res: Response) {
-    const result = await departamentoService.createDepartamento(req.body);
+    const data = CreateDepartamentoSchema.parse(req.body);
+    const result = await departamentoService.createDepartamento(data);
     res.status(201).json(result);
   },
 
