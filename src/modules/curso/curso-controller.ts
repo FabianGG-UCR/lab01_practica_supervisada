@@ -32,4 +32,13 @@ export const createCursoController = (cursoService: ReturnType<typeof createCurs
     await cursoService.deleteCurso(id);
     res.status(204).send();
   },
+
+  async getById(req: Request, res: Response) {
+    const id = Number(req.params.id);
+    const curso = await cursoService.getCursoById(id);
+    if (!curso) {
+      return res.status(404).send();
+    }
+    res.json(curso);
+  },
 });

@@ -29,6 +29,10 @@ export const createCursoService = (deps: { cursoRepo: CursoRepository }) => ({
     return await deps.cursoRepo.findAll();
   },
 
+  async getCursoById(id: number) {
+    return await deps.cursoRepo.findById(id);
+  },
+
   async updateCurso(id: number, data: UpdateCursoSchema) {
     const updated = await deps.cursoRepo.update(id, data);
 

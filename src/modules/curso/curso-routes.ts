@@ -13,6 +13,7 @@ const cursoController = createCursoController(cursoService);
 
 // Routes
 cursoRouter.post('/cursos', cursoController.create);
+cursoRouter.get('/cursos/:id', cursoController.getById);
 cursoRouter.get('/cursos', cursoController.getAll);
 cursoRouter.get('/cursos/paginated', cursoController.getPaginated);
 cursoRouter.put('/cursos/:id', cursoController.update);
