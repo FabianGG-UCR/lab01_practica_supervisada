@@ -1,11 +1,11 @@
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { departamento } from '../../db/schema/index.js';
-import type { CreateDepartamentoData, DepartamentoData } from './departamento-types.js';
+import type { DepartamentoData } from './departamento-types.js';
 import { eq } from 'drizzle-orm';
 
 export interface DepartamentoRepository {
   findAll(): Promise<DepartamentoData[]>;
-  create(data: CreateDepartamentoData): Promise<DepartamentoData>;
+  create(data: DepartamentoData): Promise<DepartamentoData>;
   delete(id: number): Promise<boolean>;
 }
 

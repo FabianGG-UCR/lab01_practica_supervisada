@@ -27,6 +27,7 @@ describe('CRUD cursos', () => {
   beforeAll(async () => {
     const res = await request(app).post('/api/departamentos').send({
       nombre: 'Test_Departamento',
+      id: 9999,
     });
     idDepartamento = res.body.id;
   });

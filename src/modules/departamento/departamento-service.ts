@@ -11,6 +11,7 @@ export const createDepartamentoService = (deps: { departamentoRepo: Departamento
   async createDepartamento(data: CreateDepartamentoSchema) {
     const departamento = await deps.departamentoRepo.create({
       nombre: data.nombre,
+      id: data.id,
     });
 
     return {
