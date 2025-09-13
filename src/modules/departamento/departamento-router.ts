@@ -11,5 +11,7 @@ const departamentoService = createDepartamentoService({ departamentoRepo });
 const departamentoController = createDepartamentoController(departamentoService);
 
 departamentoRouter.get('/departamentos', departamentoController.getAll);
+departamentoRouter.post('/departamentos', departamentoController.create);
+departamentoRouter.delete('/departamentos/:id', departamentoController.delete);
 
 export default departamentoRouter;
