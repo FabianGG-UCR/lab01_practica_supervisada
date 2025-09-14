@@ -33,3 +33,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: docker build
+        run: docker build -t backend:${{github.sha}} .
+
+      - name: docker login
+        run: docker login --username ${{secrets.DOCKER_LOGIN}} --password ${{secrets.DOCKER_PASSWORD}}
+
+      - name: tag docker image
+        run: docker tag backend:${{github.sha}} ${{secrets.DOCKER_LOGIN}}/backend:${{github.sha}}
+
+      - name: push docker image
+        run: docker push ${{secrets.DOCKER_LOGIN}}/backend:${{github.sha}}
