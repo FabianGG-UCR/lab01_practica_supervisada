@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deplyment
+  name: app-deployment
   namespace: staging
 spec:
   replicas: 1
@@ -13,9 +13,11 @@ spec:
       labels:
         app: app
     spec:
+      imagePullSecrets:
+        - name: docker-image-pull-secret
       containers:
       - name: app
-        image: docker.io/jfabian1205/lab01:latest
+        image: jfabian1205/backend:latest
         ports:
         -  containerPort: 3005
         envFrom:
