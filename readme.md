@@ -27,5 +27,5 @@ PORT=3005
 4. Ejecutar:
 ```bash
 npm install
-npx drizzle-kit push
+npm db:push
 ```

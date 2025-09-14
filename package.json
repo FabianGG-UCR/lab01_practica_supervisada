@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/index",
     "au:generate": "npx @better-auth/cli generate --config ./src/auth/auth.ts",
+    "db:push": "npm run build && drizzle-kit push",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -16,7 +17,8 @@
     "check-all": "npm run type-check && npm run lint && npm run format:check",
     "prepare": "husky",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "docker": "docker build -t backend:1 ."
+    "docker:build": "docker build -t backend:1 .",
+    "docker:run": "docker run -p 3005:3005 --env-file .env backend:1"
   },
   "lint-staged": {
     "*.ts": [

@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 # Exponer el puerto de Express
-EXPOSE 3000
+EXPOSE 3005
 
 # Usar el script definido en package.json
 CMD ["npm", "start"]
