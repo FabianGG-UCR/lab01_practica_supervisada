@@ -2,7 +2,7 @@ name: CD — Staging AKS
 
 on:
   push:
-    branches: [develop] 
+    branches: [main] 
 
 jobs:
   deploy:
