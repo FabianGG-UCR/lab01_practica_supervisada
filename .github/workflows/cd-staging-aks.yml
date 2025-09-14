@@ -32,7 +32,7 @@ jobs:
           secret-type: docker-registry
           # Name of the secret. You can use this secret name in the Kubernetes YAML configuration file.
           secret-name: docker-image-pull-secret
-          namespace: ${{ env.K8S_NAMESPACE }}
+          namespace: ${{ secrets.K8S_NAMESPACE }}
 
       # Deploy to k8s cluster
       - name: Deploy to Kubernetes cluster
@@ -46,6 +46,6 @@ jobs:
           images: ${{secrets.DOCKER_LOGIN}}/backend:${{github.sha}}
           # Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files
           imagepullsecrets: docker-image-pull-secret
-          namespace: ${{ env.K8S_NAMESPACE }}
+          namespace: ${{ secrets.K8S_NAMESPACE }}
           # deploy/promote/reject
           action: deploy
