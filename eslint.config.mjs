@@ -28,6 +28,6 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['node_modules/', 'dist/', '**/*.js', '**/*.mjs'],
+    ignores: ['node_modules/', 'dist/', '**/*.js', '**/*.mjs', 'drizzle.config.ts'],
   }
 );

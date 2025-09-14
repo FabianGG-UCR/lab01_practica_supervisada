@@ -10,5 +10,4 @@ spec:
     - name: http
       port: 80
       targetPort: 3005
-  type: ClusterIP
-  
+  type: LoadBalancer

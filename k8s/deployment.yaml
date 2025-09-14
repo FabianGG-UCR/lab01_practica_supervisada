@@ -14,12 +14,11 @@ spec:
         app: app
     spec:
       containers:
-        - name: app
-          image: backend:1
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 3005
-          envFrom:
-            - secretRef:
-                name: app-secret
+      - name: app
+        image: docker.io/jfabian1205/lab01:latest
+        ports:
+        -  containerPort: 3005
+        envFrom:
+        - secretRef:
+            name: app-secret
 
